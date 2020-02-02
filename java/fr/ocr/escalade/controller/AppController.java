@@ -22,6 +22,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,11 +31,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import fr.ocr.escalade.model.Site;
 import fr.ocr.escalade.model.Topo;
 import fr.ocr.escalade.model.User;
 import fr.ocr.escalade.model.UserProfile;
+import fr.ocr.escalade.security.SiteValidator;
 import fr.ocr.escalade.security.TopoValidator;
+import fr.ocr.escalade.service.SiteService;
 import fr.ocr.escalade.service.TopoService;
 import fr.ocr.escalade.service.UserProfileService;
 import fr.ocr.escalade.service.UserService;
@@ -50,11 +55,13 @@ public class AppController {
 	TopoService topoService;
 	@Autowired
 	TopoValidator topoValidator;
+	@Autowired
+	SiteValidator siteValidator;
 	
-	/*
+	
 	  @Autowired 
 	SiteService siteService;
-	*/
+	
 	
 	@Autowired
 	UserProfileService userProfileService;
@@ -87,6 +94,44 @@ public class AppController {
 		return "userslist";
 	}
 
+	
+	
+	
+	@RequestMapping("/espaceMembre")
+	public String espaceMembre(User user, Model model) {
+		
+		List<User> infos = userService.listUserInfos();
+		model.addAttribute("infos", infos);
+		model.addAttribute("loggedinuser", getPrincipal());
+		
+		
+		if (isCurrentAuthenticationAnonymous()) {
+			return "login";
+		} else {
+			return "espaceMembre";
+		}
+
+	}
+	
+	
+	/**
+	 * This method returns the principal[user-name] of logged-in user.
+	 */
+	private String getPrincipal() {
+		String userName = null;
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		if (principal instanceof UserDetails) {
+			userName = ((UserDetails) principal).getUsername();
+		} else {
+			userName = principal.toString();
+		}
+		return userName;
+	}
+	
+
+	
+	
 	/**
 	 * This method will provide the medium to add a new user.
 	 */
@@ -129,41 +174,16 @@ public class AppController {
 	/**
 	 * This method will provide the medium to add a new user.
 	 */
-	@RequestMapping(value = { "/newuser2" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/inscription" }, method = RequestMethod.GET)
 	public String newUser2(ModelMap model) {
 		User user = new User();
 		model.addAttribute("user", user);
 		model.addAttribute("edit", false);
 		model.addAttribute("loggedinuser", getPrincipal());
-		return "registration2";
+		return "inscription";
 	}
 
-	/**
-	 * This method will be called on form submission, handling POST request for
-	 * saving user in database. It also validates the user input
-	 */
-	@RequestMapping(value = { "/newuser2" }, method = RequestMethod.POST)
-	public String saveUser2(@Valid User user, BindingResult result, ModelMap model) {
 
-		if (result.hasErrors()) {
-			return "registration2";
-		}
-
-		if (!userService.isUserSSOUnique(user.getId(), user.getSsoId())) {
-			FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId",
-					new String[] { user.getSsoId() }, Locale.getDefault()));
-			result.addError(ssoError);
-			return "registration2";
-		}
-
-		userService.saveUser2(user);
-
-		model.addAttribute("success",
-				"youpi ! " + user.getFirstName() + " " + user.getLastName() + ". Votre compte a été créé avec succès");
-		model.addAttribute("loggedinuser", getPrincipal());
-		// return "success";
-		return "registrationsuccess";
-	}
 
 	/**
 	 * This method will provide the medium to update an existing user.
@@ -205,18 +225,7 @@ public class AppController {
 		return "registrationsuccess";
 	}
 
-	@RequestMapping("/espaceMembre")
-	public String espaceMembre(User user, Model model) {
-		model.addAttribute("liste", "mes informations :   " + user.getFirstName() + " " + user.getLastName());
-		model.addAttribute("loggedinuser", getPrincipal());
 
-		if (isCurrentAuthenticationAnonymous()) {
-			return "login";
-		} else {
-			return "espaceMembre";
-		}
-
-	}
 
 	/**
 	 * This method will delete an user by it's SSOID value.
@@ -272,20 +281,7 @@ public class AppController {
 		return "redirect:/login?logout";
 	}
 
-	/**
-	 * This method returns the principal[user-name] of logged-in user.
-	 */
-	private String getPrincipal() {
-		String userName = null;
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-		if (principal instanceof UserDetails) {
-			userName = ((UserDetails) principal).getUsername();
-		} else {
-			userName = principal.toString();
-		}
-		return userName;
-	}
+	
 
 	/**
 	 * This method returns true if users is already authenticated [logged-in], else
@@ -317,16 +313,17 @@ public class AppController {
 		return "sites";
 	}
 
+	
 	@RequestMapping("/site1")
 	public String site1(Model model) {
 
 		return "site1";
 	}
 
-	@RequestMapping("/registration2")
-	public String registration2(Model model) {
+	@RequestMapping("/inscription")
+	public String inscription(Model model) {
 
-		return "registration2";
+		return "inscription";
 	}
 
 	@RequestMapping("/infos")
@@ -398,7 +395,7 @@ public class AppController {
 		return "redirect:/topoList";
 	}
 
-	/*
+	
 	@RequestMapping(value = "/siteForm", method = RequestMethod.GET)
 	public String siteForm(Model model) {
 		model.addAttribute("userForm", new Topo());
@@ -421,7 +418,39 @@ public class AppController {
 			return "siteList";
 		}
 	
-	*/
+	
+	@RequestMapping(value = "/saveSite", method = RequestMethod.POST)
+	public String saveSite(@ModelAttribute("userForm") Site userForm, BindingResult bindingResult, Model model) {
+		siteValidator.validate(userForm, bindingResult);
+		model.addAttribute("loggedinuser", getPrincipal());
+		if (bindingResult.hasErrors()) {
+
+			return "siteForm";
+
+		}
+
+		siteService.saveSite(userForm);
+
+		return "siteList";
+	}
+	
+	
+	 @RequestMapping(value = "/inscription", method = RequestMethod.POST) public
+	  String inscription(Model model, 
+	  
+	  @ModelAttribute("user") @Validated User user,  BindingResult result, 
+	 final RedirectAttributes redirectAttributes) {
+	 
+	  if (result.hasErrors()) { return this.inscription(model); }
+	  
+	  this.userService.inscription(user);
+	  
+	  // Important!!: Need @EnableWebMvc // Add message to flash scope
+	  redirectAttributes.addFlashAttribute("message", "Save User Successful");
+	  
+	  return "redirect:/home";
+	 }
+	
 	
 	
 	

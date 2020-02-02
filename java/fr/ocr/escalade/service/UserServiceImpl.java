@@ -2,6 +2,9 @@ package fr.ocr.escalade.service;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,10 @@ public class UserServiceImpl implements UserService{
 
 	@Autowired
 	private UserDao dao;
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+
 
 	@Autowired
     private PasswordEncoder passwordEncoder;
@@ -35,9 +42,9 @@ public class UserServiceImpl implements UserService{
 		dao.save(user);
 	}
 
-	public void saveUser2(User user) {
+	public void inscription(User user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		dao.save2(user);
+		dao.save(user);
 	}
 	
 	
@@ -82,5 +89,19 @@ public class UserServiceImpl implements UserService{
 		User user = findBySSO(sso);
 		return ( user == null || ((id != null) && (user.getId() == id)));
 	}
+	
+	
+	
+	  @SuppressWarnings("unchecked")
+	  
+	  @Transactional
+	  
+	  @Override public List<User> listUserInfos() { 
+		  String sql = "Select new " + User.class.getName()  + "(a.id,  a.ssoId, a.password, a.firstName, a.lastName, a.email) " + " from " +User.class.getName() + " a "; 
+		  Session session = sessionFactory.getCurrentSession(); 
+		  Query query = session.createQuery(sql);
+	  return query.list(); }
+	
+	
 	
 }

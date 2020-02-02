@@ -17,12 +17,15 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.ocr.escalade.model.User;
 import fr.ocr.escalade.model.UserProfile;
 import fr.ocr.escalade.service.UserService;
-
+import fr.ocr.escalade.dao.UserDao;
 
 @Service("customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService{
 
 	static final Logger logger = LoggerFactory.getLogger(CustomUserDetailsService.class);
+	
+	@Autowired
+    private UserDao userDao;
 	
 	@Autowired
 	private UserService userService;
@@ -51,5 +54,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 		logger.info("authorities : {}", authorities);
 		return authorities;
 	}
+	
+
 	
 }

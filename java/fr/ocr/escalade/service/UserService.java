@@ -22,6 +22,8 @@ public interface UserService {
 	
 	boolean isUserSSOUnique(Integer id, String sso);
 
-	void saveUser2(User user);
+	void inscription(User user);
+
+	List<User> listUserInfos();
 
 }

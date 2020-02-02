@@ -4,11 +4,14 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.ocr.escalade.model.User;
 
@@ -44,12 +47,6 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
 		List<User> users = (List<User>) criteria.list();
 		
-		// No need to fetch userProfiles since we are not showing them on list page. Let them lazy load. 
-		// Uncomment below lines for eagerly fetching of userProfiles if you want.
-		/*
-		for(User user : users){
-			Hibernate.initialize(user.getUserProfiles());
-		}*/
 		return users;
 	}
 
@@ -57,10 +54,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 		persist(user);
 	}
 
-	
-	public void save2(User user) {
-		persist(user);
-	}
+
 	
 	
 	public void deleteBySSO(String sso) {
@@ -70,4 +64,18 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 		delete(user);
 	}
 
+	
+	  @SuppressWarnings("unchecked")
+	  
+	  @Transactional
+	  
+	  @Override public List<User> listUserInfos() { 
+		  String sql = "Select new " + User.class.getName()  + "(a.id,  a.ssoId, a.password, a.firstName, a.lastName, a.email) " + " from " +User.class.getName() + " a "; 
+		  Session session = sessionFactory.getCurrentSession(); 
+		  Query query = session.createQuery(sql);
+	  return query.list(); }
+	
+	
+	
+	
 }

@@ -25,23 +25,23 @@ public class User implements Serializable{
 	private Integer id;
 
 	@NotEmpty
-	@Column(name="SSO_ID", unique=true, nullable=false)
+	@Column(name="sso_id", unique=true, nullable=false)
 	private String ssoId;
 	
 	@NotEmpty
-	@Column(name="PASSWORD", nullable=false)
+	@Column(name="password", nullable=false)
 	private String password;
 		
 	@NotEmpty
-	@Column(name="FIRST_NAME", nullable=false)
+	@Column(name="first_name", nullable=false)
 	private String firstName;
 
 	@NotEmpty
-	@Column(name="LAST_NAME", nullable=false)
+	@Column(name="last_name", nullable=false)
 	private String lastName;
 
 	@NotEmpty
-	@Column(name="EMAIL", nullable=false)
+	@Column(name="email", nullable=false)
 	private String email;
 
 	@NotEmpty
@@ -136,6 +136,25 @@ public class User implements Serializable{
 		} else if (!ssoId.equals(other.ssoId))
 			return false;
 		return true;
+	}
+
+	
+	
+	
+	
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public User(Integer id, String ssoId, String password, String firstName, String lastName, String email) {
+	
+		this.id = id;
+		this.ssoId = ssoId;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
 	}
 
 	/*
