@@ -26,61 +26,32 @@
      
  <body>
  <nav class="navbar-fixed-top"><%@include file="navbar.jsp" %>	  </nav>
- <header class="h-25 d-inline-block">
-	<div class="overlay"></div>
-	<video autoplay="autoplay" muted="muted"
-		loop="loop">
-		<source
-			src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4"
-			type="video/mp4">
-	</video>
-	<div class="container h-50">
-		<div class="d-flex h-100 text-center align-items-center">
-			<div class="w-100 text-white">
-				<h1 class="display-3">Les amis de l'escalade</h1>
-				<p class="lead mb-0">coucou</p>
-			</div>
-		</div>
-	</div>
-</header>
+ 
 	
 	<div class="generic-container">
 		<%@include file="authheader.jsp" %>	
 		<div class="panel panel-default">
 			  <!-- Default panel contents -->
 		  	<div class="panel-heading"><span class="lead">Mes informations personnelles </span></div>
-			<table class="table table-hover">
-	    		<thead>
-		      		<tr>
-				        <th>Firstname</th>
-				        <th>Lastname</th>
-				        <th>Email</th>
-				        <th>SSO ID</th>
-				    
-				        
-					</tr>
-		    	</thead>
-	    		<tbody>
-				
-					<tr>
-						<td>${firstName}</td>
-						<td>${lastName}</td>
-						<td>${email}</td>
-						<td>${ssoId}</td>
+		
+				        Firstname
+				        Lastname
+				        Email
+				        SSO ID
+				 
+		
 					    
-							<td><a href="<c:url value='/edit-user-${loggedinuser}' />" class="btn btn-success custom-width">edit</a></td>
+							<a href="<c:url value='/edit-user-${loggedinuser}' />" class="btn btn-success custom-width">edit</a></td>
 				       
-					</tr>
 				
-	    		</tbody>
-	    	</table>
+			
 		</div>
 	
    	</div>
 	
 	
 	</body>
-	<%@include file="footer.jsp" %>	
+	<%@include file="_include/footer.jsp" %>	
 	</html>
 	
 	

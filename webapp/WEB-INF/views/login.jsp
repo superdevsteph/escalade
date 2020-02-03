@@ -87,15 +87,7 @@ $("#signup").click(function() {
 	});
 
 
-
-
-
 </script>
-
-
-
-
-
 
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -119,7 +111,7 @@ $("#signup").click(function() {
  <body>
  <nav class="navbar-fixed-top"><%@include file="navbar.jsp" %>	  </nav>
 
-<%@include file="header.jsp" %>	   
+<%@include file="_include/header.jsp" %>	   
 		
 <div class="container">
         <div class="row">
@@ -181,7 +173,7 @@ $("#signup").click(function() {
                               </p>
                            </div>
                            <div class="form-group">
-                              <p class="text-center">Pas encore inscrit?<a href="${contextPath}/newuser2">Créer un compte</a></p>
+                              <p class="text-center">Pas encore inscrit?<a href="${contextPath}/inscription">Créer un compte</a></p>
                            </div>
 						</form>
 					</div>
@@ -214,5 +206,5 @@ $("#signup").click(function() {
 
 
 	</body>
-<%@include file="footer.jsp" %>	
+<%@include file="_include/footer.jsp" %>	
 </html>

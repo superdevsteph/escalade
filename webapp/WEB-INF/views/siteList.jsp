@@ -26,7 +26,7 @@
      
  <body>
  <nav class="navbar-fixed-top"><%@include file="navbar.jsp" %>	  </nav>	
- <%@include file="header.jsp" %>
+ <%@include file="_include/header.jsp" %>
 	<div class="generic-container">
 		<%@include file="authheader.jsp" %>	
 		<div class="panel panel-default">
@@ -36,8 +36,8 @@
 	    		<thead>
 		      		<tr>
 				        <th>nom du Site</th>
-				        <th>lieu</th>
-				      
+				        <th>Region</th>
+				      <th>Description</th>
 				      
 				        	<th width="100"></th>
 				        
@@ -61,5 +61,5 @@
    	</div>
    
 </body>
-<%@include file="footer.jsp" %>	
+<%@include file="_include/footer.jsp" %>	
 </html>

@@ -28,13 +28,13 @@
  <nav class="navbar-fixed-top"><%@include file="WEB-INF/views/navbar.jsp" %>	  </nav>	
       
  <header class="h-25 d-inline-block">
-	<%@include file="WEB-INF/views/header.jsp" %>
+	<%@include file="WEB-INF/views/_include/header.jsp" %>
 	
 </header>
      
 </body>
 
-<%@include file="WEB-INF/views/footer.jsp" %>
+<%@include file="WEB-INF/views/_include/footer.jsp" %>
 	
 
 </html>

@@ -26,7 +26,7 @@
      
  <body>
  <nav class="navbar-fixed-top"><%@include file="navbar.jsp" %>	  </nav>
-<%@include file="header.jsp" %>	
+<%@include file="_include/header.jsp" %>	
 
 
 
@@ -48,9 +48,7 @@
                         <div class="col-lg-2 col-md-2 col-sm-12 p-0">
                             <input type="text" class="form-control search-slt" placeholder="Longueur">
                         </div>
-                          <div class="col-lg-2 col-md-2 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="Secteurs">
-                        </div>
+                      
                           <div class="col-lg-2 col-md-2 col-sm-12 p-0">
                             <input type="text" class="form-control search-slt" placeholder="Voies">
                         </div>
@@ -74,7 +72,7 @@
                             </select>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-12 p-0">
-                            <button type="button" class="btn btn-danger wrn-btn">Trouver un site</button>
+                            <button type="button" class="btn btn-danger wrn-btn">Chercher</button>
                         </div>
                     </div>
                 </div>

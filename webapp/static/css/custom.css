@@ -1,0 +1,81 @@
+body {
+    padding-top: 70px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+.footer p {
+    margin: 10px 0;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 300px;
+}
+
+.comment-list {
+    padding-top: 10px;
+    border: 1px solid #e1e2e3;
+    background-color: #fafafa;
+}
+
+.comment-object {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.comment-object-child {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.user-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.topo-img {
+    height: 200px;
+}
+
+.pull-left {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.pull-left-child {
+    padding-left: 4px;
+    padding-right: 6px;
+}
+
+.option-cursor {
+    cursor: pointer;
+}
+
+.comment-point {
+    color: #90949c;
+}
+
+.thumbnail {
+    border: none;
+    background-color: #fafafa;
+}
+
+.reply-list {
+    margin-bottom: 5px;
+}
+
+.reply-border-left {
+    border-left: 2px solid #e1e2e3;
+    margin-top: 10px;
+    padding-left: 4px;
+}

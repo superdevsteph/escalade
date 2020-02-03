@@ -26,26 +26,29 @@
      
  <body>
  <nav class="navbar-fixed-top"><%@include file="navbar.jsp" %>	  </nav>	
-<%@include file="header.jsp" %>	
+<%@include file="_include/header.jsp" %>	
 
  <div class="container m-5 p-5 border border-light">
  
  
  <div class="container text-justify">
 <h1>Arudy</h1>
+<h3>Description</h3>
 <p>
-La vallée d'Ossau est l'une des trois grandes vallées de montagne de la région béarnaise. Elle s'étire du nord au sud depuis Pau jusqu'au col du Pourtalet, à la frontière espagnole, sous le regard bienveillant du pic du Midi d'Ossau (2884 mètres), à la silhouette bicéphale si caractéristique. En partie basse se trouve le site d'escalade d'Arudy, lieu historique de la grimpe en vallée d'Ossau. «On ne sait pas exactement à quand remonte la pratique de l'escalade arudienne. En 1958, de jeunes grimpeurs ont tenté d'escalader la Pointe centrale de Sesto (la grande pointe blanche) et en 1959, sont apparus les premiers tracés. Dans les années 1970, quelques voies furent pré-équipées depuis le haut des sommets», lit-on dans un texte publié par Ville d'Arudy - Maison d'Ossau, en 1999. «Depuis, des gens viennent du monde entier s'entraîner sur ce rocher-école», lit-on ensuite sur le site Internet de la mairie d'Arudy. Si nous osons relayer telle quelle cette information sans chercher à la vérifier, ajoutons une possible explication à ce succès planétaire: un rocher calcaire très varié où quelque 230 voies offrent un panel de difficultés allant de l'initiation au haut niveau. De quoi drainer toute la planète grimpe dans la région, ou au moins tous les Palois, qui en ont fait leur falaise...
-Rocher & Escalade Arudy Falaise de rocher calcaire, doté de grosses écailles qui séparent de petites dalles. Les voies mesurent jusqu'à 55 mètres de hauteur, avec des possibilités de combiner les voies pour enchaîner deux longueurs. Les couennes sont réparties sur plusieurs falaises, constituant autant de secteurs. Au coeur du cirque d'Anglas, un nouveau secteur d'initiation. Les autres: Houn de Laa (17 voies du 4c au 7b+), Sirène (15 voies du 5a au 7b+), Vénus (13 voies du 4b au 5c), Soleil (une vingtaine de voies dans toutes les nuances de 5 et de 6, et un secteur très apprécié et fréquenté), Gaufrette (une quinzaine de voies du 4c au 6b+), Sesto (une bonne vingtaine de voies, du 5a au 7b+) et La Fonderie (25 voies, 5b à 8b+) - ce dernier un cran au-dessus en termes de difficulté (avec une moyenne dans le septième degré), sur une falaise calcaire déversante à surplombante. L'équipement est partout moderne, et récent dans certains secteurs.
-
-Kids welcome
-Le site convient parfaitement pour aller grimper avec des enfants et les initier aux joies de votre activité favorite
-Accès & Approche Arudy Depuis Pau, suivre la N134 en direction d'Oloron sur environ 8km. Ensuite, emprunter la D934 sur 15km, puis prendre la direction Arudy par la D287. À Arudy, sur l'axe Laruns - OloronSainte-Marie, se trouve LA grande surface Champion. Tourner devant ce magasin, quelques centaines de mètres plus loin, prendre à droite à l'embranchement et se garer 200 mètres après sur le parking à gauche. À pied, passer devant la ferme d'Anglas et continuer jusqu'à la falaise (secteur Houn de Laa).
-Quand y aller ?
-La falaise est praticable toute l'année s'il fait beau. Reste souvent humide après une pluie. Au secteur Sesto, réputé le plus ensoleillé, le soleil arrive vers 9h et s'en va vers 14-15h en hiver. Attention donc, en cette saison, à commencer tôt les jours où il fait frisquet.
-
+La vallée d'Ossau est l'une des trois grandes vallées de montagne de la région béarnaise. Elle s'étire du nord au sud depuis Pau jusqu'au col du Pourtalet, à la frontière espagnole, sous le regard bienveillant du pic du Midi d'Ossau (2884 mètres), à la silhouette bicéphale si caractéristique. En partie basse se trouve le site d'escalade d'Arudy, lieu historique de la grimpe en vallée d'Ossau. «On ne sait pas exactement à quand remonte la pratique de l'escalade arudienne. En 1958, de jeunes grimpeurs ont tenté d'escalader la Pointe centrale de Sesto (la grande pointe blanche) et en 1959, sont apparus les premiers tracés. Dans les années 1970, quelques voies furent pré-équipées depuis le haut des sommets», lit-on dans un texte publié par Ville d'Arudy - Maison d'Ossau, en 1999. «Depuis, des gens viennent du monde entier s'entraîner sur ce rocher-école», lit-on ensuite sur le site Internet de la mairie d'Arudy. 
+Si nous osons relayer telle quelle cette information sans chercher à la vérifier, ajoutons une possible explication à ce succès planétaire: un rocher calcaire très varié où quelque 230 voies offrent un panel de difficultés allant de l'initiation au haut niveau. 
+De quoi drainer toute la planète grimpe dans la région, ou au moins tous les Palois, qui en ont fait leur falaise...
+Rocher & Escalade Arudy Falaise de rocher calcaire, doté de grosses écailles qui séparent de petites dalles. 
+<h3>Les voies</h3>
+<br>
+Les voies mesurent jusqu'à 55 mètres de hauteur, avec des possibilités de combiner les voies pour enchaîner deux longueurs. Les couennes sont réparties sur plusieurs falaises, constituant autant de secteurs. Au coeur du cirque d'Anglas, un nouveau secteur d'initiation. Les autres: Houn de Laa (17 voies du 4c au 7b+), Sirène (15 voies du 5a au 7b+), Vénus (13 voies du 4b au 5c), Soleil (une vingtaine de voies dans toutes les nuances de 5 et de 6, et un secteur très apprécié et fréquenté), Gaufrette (une quinzaine de voies du 4c au 6b+), Sesto (une bonne vingtaine de voies, du 5a au 7b+) et La Fonderie (25 voies, 5b à 8b+) - ce dernier un cran au-dessus en termes de difficulté (avec une moyenne dans le septième degré), sur une falaise calcaire déversante à surplombante. L'équipement est partout moderne, et récent dans certains secteurs.
+<br>
 A savoir
 Il y a déjà eu, par le passé, des interdictions temporaires sur le site d'Arudy pour cause d'oiseaux nicheurs (c'était le grand duc). Ce n'est plus le cas, mais restez souple et informez-vous.
+<br><br>
+
 Sites à proximité Arudy Site de blocs de Pont de Camps, 170 passages du 3 au 7c.
+<br><br>
 Topos Arudy > Arudy, Escalades dans les Pyrénées-Atlantiques, Le topo, Rando Éditions, 2010.
 > La vallée d'Ossau, L.Alfonso et X. Buxo, 2d. Supercrack, 2011.
 </p>
@@ -150,5 +153,5 @@ Topos Arudy > Arudy, Escalades dans les Pyrénées-Atlantiques, Le topo, Rando Édi
 </section>
 </div>
 </body>
-<%@include file="footer.jsp" %>	
+<%@include file="_include/footer.jsp" %>	
 </html>

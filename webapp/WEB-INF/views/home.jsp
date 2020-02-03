@@ -26,9 +26,9 @@
      
  <body>
  <nav class="navbar-fixed-top"><%@include file="navbar.jsp" %>	  </nav>  
-<%@include file="header.jsp" %>	   
+<%@include file="_include/header.jsp" %>	   
       
 </body>
-<%@include file="footer.jsp" %>	  
+<%@include file="_include/footer.jsp" %>	  
 </html>
 

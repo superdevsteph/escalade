@@ -28,7 +28,7 @@ $('.navbar-light .dmenu').hover(function () {
             <div class="dropdown-menu sm-menu">
              <a class="dropdown-item" href="${pageContext.request.contextPath}/espaceMembre">espace membre</a>
              <a class="dropdown-item" href="${pageContext.request.contextPath}/login">Se connecter</a>
-              <a class="dropdown-item" href="${pageContext.request.contextPath}/newuser2">Créer un compte</a>
+              <a class="dropdown-item" href="${pageContext.request.contextPath}/inscription">Créer un compte</a>
               
             </div>
           </li>
@@ -41,7 +41,7 @@ $('.navbar-light .dmenu').hover(function () {
              Les sites
             </a>
             <div class="dropdown-menu sm-menu">
-            <a class="dropdown-item" href="${pageContext.request.contextPath}/sites">Les sites</a>
+            <a class="dropdown-item" href="${pageContext.request.contextPath}/sites">Trouver un site</a>
               <a class="dropdown-item" href="${pageContext.request.contextPath}/site1">site1</a>
               <a class="dropdown-item" href="${pageContext.request.contextPath}/site1">site2</a>
              <a class="dropdown-item" href="${pageContext.request.contextPath}/site1">site3</a>

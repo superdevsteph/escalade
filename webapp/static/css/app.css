@@ -432,7 +432,7 @@ body{
 
 #comments form textarea {
 	height:150px;
-	margin-left: 150px;
+	
 	
 
 }
@@ -503,7 +503,7 @@ body{
 
 footer{
 	background-color:#c0c0c0;
-	position: fixed;
+	
     height: 180px;
     bottom: 0;
     width: 100%;

@@ -18,7 +18,7 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Nouveau Topo</title>
+        <title>Nouveau Site</title>
         <link href="<c:url value='/static/css/bootstrap.css' />"  rel="stylesheet"></link>
        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
   
@@ -26,18 +26,18 @@
      
  <body>
  <nav class="navbar-fixed-top"><%@include file="navbar.jsp" %>	  </nav>	
-<%@include file="header.jsp" %>
+<%@include file="_include/header.jsp" %>
 
 
 	<section class="container my-5">
 			<form:form class="form-horizontal my-5 center_div col-6" role="form"
-			action="saveTopo" method="POST" modelAttribute="userForm">
+			action="saveSite" method="POST" modelAttribute="userForm">
 				<form:input type="hidden" path="id" id="id"/>
 		
-				<legend class="form-signin-heading">Ajouter un Topo</legend>
+				<legend class="form-signin-heading">Ajouter un Site</legend>
 
 				<div class="form-group col-10">
-					<label for="fichier">Couverture</label> <input type="file"
+					<label for="fichier">Ajouter une image</label> <input type="file"
 						class="form-control-file" id="fichier">
 				</div>
 				
@@ -51,17 +51,11 @@
 
 				<div class="form-group col-10">
 
-					<label for="region">Lieu</label>
+					<label for="region">Region</label>
 					<form:input class="form-control" path="lieu" required="required" />
 					<form:errors path="lieu" class="error-message" />
 				</div>
 
-				<div class="form-group col-10">
-
-					<label for="nbVoies">Disponible</label>
-					<form:input class="form-control" path="disponible"  />
-					<form:errors path="disponible" class="error-message" />
-				</div>
 				
 							<div class="form-group col-10">
 					<label for="bio">Description</label>
@@ -72,18 +66,12 @@
 				</div>
 				
 				
-				<div class="form-group col-10">
-
-					<label for="datePublication">Date de publication</label>
-					<form:input class="form-control" type="date" path="datePublication" required="required" />
-					<form:errors path="datePublication" class="error-message" />
-				</div>
-
+			
 	
 
 				<div>
 					<input type="submit" value="Submit" /> <a
-						href="${pageContext.request.contextPath}/topoList">Cancel</a>
+						href="${pageContext.request.contextPath}/siteList">Cancel</a>
 				</div>
 			
 		</form:form>
@@ -92,5 +80,5 @@
 
 
 </body>
-<%@include file="footer.jsp" %>	
+<%@include file="_include/footer.jsp" %>	
 </html>
