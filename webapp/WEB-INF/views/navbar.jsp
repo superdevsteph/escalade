@@ -26,7 +26,7 @@ $('.navbar-light .dmenu').hover(function () {
               gestion de compte
             </a>
             <div class="dropdown-menu sm-menu">
-             <a class="dropdown-item" href="${pageContext.request.contextPath}/espaceMembre">espace membre</a>
+             <a class="dropdown-item" href="${pageContext.request.contextPath}/espaceMembre-user-${ssoId}">espace membre</a>
              <a class="dropdown-item" href="${pageContext.request.contextPath}/login">Se connecter</a>
               <a class="dropdown-item" href="${pageContext.request.contextPath}/inscription">Créer un compte</a>
               
@@ -49,6 +49,7 @@ $('.navbar-light .dmenu').hover(function () {
               <a class="dropdown-item" href="${pageContext.request.contextPath}/site1">site5</a>
               <a class="dropdown-item" href="${pageContext.request.contextPath}/site1">site6</a>
             </div>
+            <li><a href="<c:url value='/espaceMembre-user-${user.ssoId}' />" class="btn btn-success custom-width">espaceMembre</a></li>
           </li> 
           </ul>
        

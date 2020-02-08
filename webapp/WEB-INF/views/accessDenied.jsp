@@ -31,7 +31,7 @@
 			<span>Désolé <strong>${loggedinuser}</strong>, vous n'êtes pas autorisé à accéder à cette page.</span> <span class="floatRight"><a href="<c:url value="/logout" />">Se déconnecter</a></span>
 		
 		
-		<p>${sessionScope.user.lastName}</p>
+		
 		
 		</div>
 	</div>
