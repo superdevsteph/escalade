@@ -14,10 +14,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.ocr.escalade.dao.UserDao;
 import fr.ocr.escalade.model.User;
 import fr.ocr.escalade.model.UserProfile;
 import fr.ocr.escalade.service.UserService;
-import fr.ocr.escalade.dao.UserDao;
 
 @Service("customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService{

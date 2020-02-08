@@ -7,6 +7,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,8 @@ import fr.ocr.escalade.service.UserService;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes("roles")
+@SessionAttributes({"roles", "user"})
+
 public class AppController {
 
 	@Autowired
@@ -96,22 +98,23 @@ public class AppController {
 
 	
 	
+	@RequestMapping(value = { "/espaceMembre-user-{ssoId}" }, method = RequestMethod.GET)
 	
-	@RequestMapping("/espaceMembre")
-	public String espaceMembre(User user, Model model) {
-		
-		List<User> infos = userService.listUserInfos();
-		model.addAttribute("infos", infos);
+	public String espaceMembre(@PathVariable String ssoId, User user, Model model, ModelMap modelMap, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		user=(User) session.getAttribute("user");
 		model.addAttribute("loggedinuser", getPrincipal());
-		
-		
-		if (isCurrentAuthenticationAnonymous()) {
-			return "login";
-		} else {
+		 if (isCurrentAuthenticationAnonymous()) {
+	            return "login";
+	            }
+	        modelMap.addAttribute("currentURI", request.getRequestURI());
+	       
 			return "espaceMembre";
 		}
+	
 
-	}
+
+
 	
 	
 	/**
@@ -128,6 +131,7 @@ public class AppController {
 		}
 		return userName;
 	}
+	
 	
 
 	
@@ -272,12 +276,16 @@ public class AppController {
 	 */
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+		  HttpSession session = request.getSession();
+	        session.invalidate();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null) {
 			// new SecurityContextLogoutHandler().logout(request, response, auth);
 			persistentTokenBasedRememberMeServices.logout(request, response, auth);
 			SecurityContextHolder.getContext().setAuthentication(null);
 		}
+		
+		
 		return "redirect:/login?logout";
 	}
 

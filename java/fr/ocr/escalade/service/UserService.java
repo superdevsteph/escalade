@@ -9,18 +9,18 @@ public interface UserService {
 	
 	User findById(int id);
 	
-	User findBySSO(String sso);
+	User findBySSO(String ssoId);
 	
 	void saveUser(User user);
 	
 	void updateUser(User user);
 	void updateUser2(User user);
 	
-	void deleteUserBySSO(String sso);
+	void deleteUserBySSO(String ssoId);
 
 	List<User> findAllUsers(); 
 	
-	boolean isUserSSOUnique(Integer id, String sso);
+	boolean isUserSSOUnique(Integer id, String ssoId);
 
 	void inscription(User user);
 

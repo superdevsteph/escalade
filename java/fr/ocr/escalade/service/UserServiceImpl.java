@@ -21,6 +21,8 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserDao dao;
 	
+
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -32,8 +34,8 @@ public class UserServiceImpl implements UserService{
 		return dao.findById(id);
 	}
 
-	public User findBySSO(String sso) {
-		User user = dao.findBySSO(sso);
+	public User findBySSO(String ssoId) {
+		User user = dao.findBySSO(ssoId);
 		return user;
 	}
 
@@ -77,16 +79,16 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	
-	public void deleteUserBySSO(String sso) {
-		dao.deleteBySSO(sso);
+	public void deleteUserBySSO(String ssoId) {
+		dao.deleteBySSO(ssoId);
 	}
 
 	public List<User> findAllUsers() {
 		return dao.findAllUsers();
 	}
 
-	public boolean isUserSSOUnique(Integer id, String sso) {
-		User user = findBySSO(sso);
+	public boolean isUserSSOUnique(Integer id, String ssoId) {
+		User user = findBySSO(ssoId);
 		return ( user == null || ((id != null) && (user.getId() == id)));
 	}
 	
